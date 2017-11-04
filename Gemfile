@@ -65,4 +65,5 @@ group:test do
   gem "selenium-webdriver"
   gem 'rails-controller-testing' # specでassignが使える
   gem 'chromedriver-helper'
+  gem 'shoulda-matchers'
 end
