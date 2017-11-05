@@ -9,4 +9,9 @@ describe 'トップページにアクセスしたとき' do
     expect(page.current_path).to eq root_path
   end
 
+  it 'redirects to new page' do
+    click_link 'add'
+    expect(page.current_path).to eq posts_new_path
+  end
+
 end

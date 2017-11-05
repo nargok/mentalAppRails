@@ -15,10 +15,15 @@
             <p>
               <%= post.content %>
             </p>
-            <a href="/posts/<%= post.id %>" class="secondary-content"><i class="material-icons">投稿詳細へ</i></a>
+            <a href="/posts/<%= post.id %>" class="secondary-content"><i class="material-icons">details</i></a>
           </li>
       <% end %>
     </ul>
+    <div class="fixed-action-btn" >
+      <a href="/posts/new" class="btn-floating btn-large waves-effect waves-light red">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
   </div>
 
 </div>
