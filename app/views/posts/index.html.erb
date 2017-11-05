@@ -1,13 +1,14 @@
-<% @posts.each do |post| %>
-    <div class="post_content">
-      <%= post.title %>
-      <%= post.content %>
-    </div>
-<% end %>
+<h1>投稿一覧</h1>
+<ul class="collection">
+  <% @posts.each do |post| %>
 
-<div class="collection">
-  <a href="#!" class="collection-item">Alan<span class="badge">1</span></a>
-  <a href="#!" class="collection-item">Alan<span class="new badge">4</span></a>
-  <a href="#!" class="collection-item">Alan</a>
-  <a href="#!" class="collection-item">Alan<span class="badge">14</span></a>
-</div>
+  <li class="collection-item avatar">
+    <i class="material-icons circle">folder</i>
+    <span class="title"><%= post.title %></span>
+    <p>
+      <%= post.content %>
+    </p>
+    <a href="#!" class="secondary-content"><i class="material-icons">見る</i></a>
+  </li>
+  <% end %>
+</ul>
