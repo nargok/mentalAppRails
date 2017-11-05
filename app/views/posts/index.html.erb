@@ -1,4 +1,4 @@
-<h1>投稿一覧</h1>
+<% provide(:title, '投稿一覧') %>
 <ul class="collection">
   <% @posts.each do |post| %>
 
@@ -8,7 +8,7 @@
     <p>
       <%= post.content %>
     </p>
-    <a href="#!" class="secondary-content"><i class="material-icons">見る</i></a>
+    <a href="/posts/<%= post.id %>" class="secondary-content"><i class="material-icons">投稿詳細へ</i></a>
   </li>
   <% end %>
 </ul>
