@@ -1,14 +1,25 @@
 <% provide(:title, '投稿一覧') %>
-<ul class="collection">
-  <% @posts.each do |post| %>
+<div class="row">
 
-  <li class="collection-item avatar">
-    <i class="material-icons circle">folder</i>
-    <span class="title"><%= post.title %></span>
-    <p>
-      <%= post.content %>
-    </p>
-    <a href="/posts/<%= post.id %>" class="secondary-content"><i class="material-icons">投稿詳細へ</i></a>
-  </li>
-  <% end %>
-</ul>
+  <!--side navigation-->
+  <%= render :partial => 'sidenavigation' %>
+
+  <!--main content-->
+  <div class="col s12 m8 l9">
+    <ul class="collection">
+      <% @posts.each do |post| %>
+
+          <li class="collection-item avatar">
+            <i class="material-icons circle">folder</i>
+            <span class="title"><%= post.title %></span>
+            <p>
+              <%= post.content %>
+            </p>
+            <a href="/posts/<%= post.id %>" class="secondary-content"><i class="material-icons">投稿詳細へ</i></a>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+

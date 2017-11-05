@@ -32,4 +32,17 @@ RSpec.describe PostsController, type: :controller do
 
     end
   end
+
+  describe 'GET #new' do
+    context 'newにアクセスしたとき' do
+
+
+      it 'new templateが表示されること' do
+        get :new
+        expect(response).to render_template :new
+      end
+
+    end
+  end
+
 end
