@@ -11,7 +11,7 @@ describe 'トップページにアクセスしたとき' do
 
   it 'redirects to new page' do
     click_link 'add'
-    expect(page.current_path).to eq posts_new_path
+    expect(page.current_path).to eq new_post_path
   end
 
 end

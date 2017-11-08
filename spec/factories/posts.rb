@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :post do
-    sequence(:title) { |i| "title#{i}" }
-    sequence(:content) { |i| "content#{i}" }
+    title   { Faker::Lorem.word}
+    content { Faker::Lorem.sentence}
 
     factory :invalid_post do
       title nil

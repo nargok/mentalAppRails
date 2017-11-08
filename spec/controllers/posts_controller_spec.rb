@@ -80,4 +80,24 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  describe 'GET #edit' do
+    context 'editにアクセスしたとき' do
+      before :each do
+        @post = create(:post)
+      end
+
+      it 'assigns the requested posts to @post' do
+        get :show, id: @post
+        expect(assigns(:post)).to eq @post
+      end
+
+
+      it 'edit templateが表示されること' do
+        get :edit, id: @post
+        expect(response).to render_template :edit
+      end
+
+    end
+  end
+
 end

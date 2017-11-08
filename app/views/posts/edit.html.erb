@@ -1,0 +1,23 @@
+<% provide(:title, '編集') %>
+<!-- Page Layout here -->
+<div class="row">
+
+  <!--side navigation-->
+  <%= render :partial => 'sidenavigation' %>
+
+  <!--main content-->
+  <div class="col s12 m8 l9 teal-page-content"> <!-- Note that "m8 l9" was added -->
+
+    <%= form_for(@post) do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: 'タイトルを入力してください' %>
+        <%= f.label :content %>
+        <%= f.text_area :content, class: 'materialize-textarea', placeholder: '事実を入力してください' %>
+
+        <%= button_tag type: 'submit', class: 'btn waves-effect waves-light', id: 'register-post' do  %>
+            更新する<i class="material-icons right">update</i>
+        <% end %>
+    <% end %>
+
+  </div>
+</div>
