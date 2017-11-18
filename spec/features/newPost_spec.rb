@@ -6,11 +6,11 @@ feature '新規投稿にアクセスしたとき' do
     @post = FactoryGirl.build(:post)
     visit new_post_path
 
-    expect {
-      fill_in 'Title', with: @post.title
-      fill_in 'Content', with: @post.content
-      click_button '投稿する'
-    }.to change(Post, :count).by(1)
+    fill_in 'Title', with: @post.title
+    fill_in 'Content', with: @post.content
+    click_button '投稿する'
+
+    expect(Post.find_by(title: @post.title)).to be_truthy
     expect(current_path).to eq root_path
   end
 
