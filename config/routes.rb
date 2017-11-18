@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   # post 'posts' => 'posts#create'
   # get 'posts/:id' => 'posts#show'
   # get 'posts/:id/edit' => 'posts#edit'
-  resources :posts, only: [:index, :show, :new, :create, :edit]
+  resources :posts, only: [:index, :show, :new, :create, :edit, :update]
 
 end

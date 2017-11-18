@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
+  before_action :target_post, only: [:show, :edit, :update]
 
   def index
     @posts = Post.all
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -24,13 +24,25 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+  end
+
+  def update
+    if @post.update_attributes(posts_params)
+      flash[:success] = '更新しました'
+      redirect_to @post
+    else
+      render 'posts/edit'
+    end
   end
 
   private
 
   def posts_params
     params.require(:post).permit(:title, :content)
+  end
+
+  def target_post
+    @post = Post.find(params[:id])
   end
 
 end

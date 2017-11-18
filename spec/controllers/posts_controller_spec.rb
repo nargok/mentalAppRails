@@ -100,4 +100,48 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  describe 'PATCH #update' do
+    before :each do
+      @post = create(:post)
+    end
+
+    context '有効な属性の場合' do
+
+      it "changes @post's attributes" do
+        patch :update, id: @post,
+              post: attributes_for(:post,
+              title: 'updated title',
+              content: 'updated content')
+        @post.reload
+        expect(@post.title).to eq 'updated title'
+        expect(@post.content).to eq 'updated content'
+      end
+
+      it 'redirects the updated post' do
+        patch :update, id: @post, post: attributes_for(:post)
+        expect(response).to redirect_to @post
+      end
+
+    end
+
+    context '無効な属性の場合' do
+      it "does not change @post's attributes" do
+        original_title = @post.title
+        patch :update, id: @post,
+              post: attributes_for(:post,
+              title: nil,
+              content: 'put invalid title')
+        @post.reload
+        expect(@post.title).to eq original_title
+        expect(@post.title).not_to eq 'put invalid title'
+      end
+
+      it 're-renders edit template' do
+        patch :update, id: @post,
+              post: attributes_for(:invalid_post)
+        expect(response).to render_template(:edit)
+      end
+
+    end
+  end
 end
